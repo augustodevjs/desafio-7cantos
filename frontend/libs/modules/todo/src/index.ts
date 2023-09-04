@@ -1,1 +1,2 @@
-export * from './lists/pages/lists'
+export * from './lists'
+export * from './not-found'

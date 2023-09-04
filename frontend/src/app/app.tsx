@@ -1,9 +1,10 @@
+import { Router } from '../routes';
 import { GlobalStyle } from "shared/styles"
 
 export const App = () => {
   return (
     <>
-      <div>teste</div>
+      <Router />
       <GlobalStyle />
     </>
   )
