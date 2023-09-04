@@ -1,0 +1,1 @@
+export * from './form-register/form-login'
