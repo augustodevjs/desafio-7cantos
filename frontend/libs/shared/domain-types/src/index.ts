@@ -1,1 +1,1 @@
-export * from './shared-domain-types';
+export * from './models'
