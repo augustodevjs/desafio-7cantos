@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import * as S from './not-found.styles'
 import { env } from "shared/environment"
+import { Button } from "shared/components"
 
 export const NotFound = () => {
   const navigate = useNavigate()
@@ -17,11 +18,11 @@ export const NotFound = () => {
       <S.Description>
         Estamos trabalhando nisso e vamos corrigí-lo o mais rápido possível
       </S.Description>
-      <button
+      <Button
         onClick={() => navigate(env.app.homepageUrl)}
       >
         Voltar
-      </button>
+      </Button>
     </S.Container>
   )
 }
