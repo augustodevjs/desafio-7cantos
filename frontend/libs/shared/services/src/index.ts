@@ -1,1 +1,1 @@
-export * from './lib/shared-services';
+export * from './shared-services';

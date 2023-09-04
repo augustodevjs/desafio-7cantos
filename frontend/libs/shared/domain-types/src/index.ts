@@ -1,1 +1,1 @@
-export * from './lib/shared-domain-types';
+export * from './shared-domain-types';

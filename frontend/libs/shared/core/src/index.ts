@@ -1,1 +1,1 @@
-export * from './lib/shared-core';
+export * from './shared-core';
