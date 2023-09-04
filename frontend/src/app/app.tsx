@@ -1,17 +1,10 @@
-import styled from 'styled-components';
+import { GlobalStyle } from "shared/styles"
 
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
-
-export function App() {
+export const App = () => {
   return (
-    <StyledApp>
-      <NxWelcome title="frontend" />
-    </StyledApp>
-  );
+    <>
+      <div>teste</div>
+      <GlobalStyle />
+    </>
+  )
 }
-
-export default App;
