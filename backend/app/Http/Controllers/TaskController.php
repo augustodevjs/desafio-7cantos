@@ -28,7 +28,6 @@ class TaskController extends Controller
      *         response="200",
      *         description="Successful operation",
      *         @OA\JsonContent(
-     *             @OA\Property(property="data", type="object",
      *                 @OA\Property(property="current_page", type="integer"),
      *                 @OA\Property(property="data", type="array",
      *                     @OA\Items(
@@ -57,7 +56,6 @@ class TaskController extends Controller
      *                 @OA\Property(property="to", type="integer"),
      *                 @OA\Property(property="total", type="integer"),
      *             ),
-     *         ),
      *     ),
      *     @OA\Response(
      *         response="500",
@@ -75,7 +73,7 @@ class TaskController extends Controller
             $tasks->getCollection()->transform(function ($task) {
                 return $this->transformCompleted($task);
             });
-            return response()->json(['data' => $tasks]);
+            return response()->json([$tasks]);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Erro ao obter as tarefas'], 500);
         }
@@ -261,7 +259,7 @@ class TaskController extends Controller
      *         response="404",
      *         description="Task not found",
      *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
+     *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
@@ -319,7 +317,7 @@ class TaskController extends Controller
      *         response="404",
      *         description="Task not found",
      *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
+     *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
@@ -372,7 +370,7 @@ class TaskController extends Controller
      *         response="404",
      *         description="Task not found",
      *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
+     *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
@@ -470,7 +468,7 @@ class TaskController extends Controller
         return $task;
     }
 
-    private function validateTaskData(Request $request): \Illuminate\Contracts\Validation\Validator
+    private function validateTaskData(Request $request): \Illuminate\Validation\Validator
     {
         $rules = [
             'title' => 'required|string',

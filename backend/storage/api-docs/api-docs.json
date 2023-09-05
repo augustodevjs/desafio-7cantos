@@ -32,83 +32,78 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
+                                        "current_page": {
+                                            "type": "integer"
+                                        },
                                         "data": {
-                                            "properties": {
-                                                "current_page": {
-                                                    "type": "integer"
-                                                },
-                                                "data": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "properties": {
-                                                            "id": {
-                                                                "type": "integer"
-                                                            },
-                                                            "title": {
-                                                                "type": "string"
-                                                            },
-                                                            "description": {
-                                                                "type": "string"
-                                                            },
-                                                            "responsible": {
-                                                                "type": "string"
-                                                            },
-                                                            "completed": {
-                                                                "type": "boolean"
-                                                            }
-                                                        },
-                                                        "type": "object"
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    },
+                                                    "responsible": {
+                                                        "type": "string"
+                                                    },
+                                                    "completed": {
+                                                        "type": "boolean"
                                                     }
                                                 },
-                                                "first_page_url": {
-                                                    "type": "string"
-                                                },
-                                                "from": {
-                                                    "type": "integer"
-                                                },
-                                                "last_page": {
-                                                    "type": "integer"
-                                                },
-                                                "last_page_url": {
-                                                    "type": "string"
-                                                },
-                                                "links": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "properties": {
-                                                            "url": {
-                                                                "type": "string"
-                                                            },
-                                                            "label": {
-                                                                "type": "string"
-                                                            },
-                                                            "active": {
-                                                                "type": "boolean"
-                                                            }
-                                                        },
-                                                        "type": "object"
+                                                "type": "object"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "type": "string"
+                                        },
+                                        "from": {
+                                            "type": "integer"
+                                        },
+                                        "last_page": {
+                                            "type": "integer"
+                                        },
+                                        "last_page_url": {
+                                            "type": "string"
+                                        },
+                                        "links": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "label": {
+                                                        "type": "string"
+                                                    },
+                                                    "active": {
+                                                        "type": "boolean"
                                                     }
                                                 },
-                                                "next_page_url": {
-                                                    "type": "string"
-                                                },
-                                                "path": {
-                                                    "type": "string"
-                                                },
-                                                "per_page": {
-                                                    "type": "integer"
-                                                },
-                                                "prev_page_url": {
-                                                    "type": "string"
-                                                },
-                                                "to": {
-                                                    "type": "integer"
-                                                },
-                                                "total": {
-                                                    "type": "integer"
-                                                }
-                                            },
-                                            "type": "object"
+                                                "type": "object"
+                                            }
+                                        },
+                                        "next_page_url": {
+                                            "type": "string"
+                                        },
+                                        "path": {
+                                            "type": "string"
+                                        },
+                                        "per_page": {
+                                            "type": "integer"
+                                        },
+                                        "prev_page_url": {
+                                            "type": "string"
+                                        },
+                                        "to": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
                                         }
                                     },
                                     "type": "object"
@@ -447,7 +442,7 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "error": {
+                                        "message": {
                                             "type": "string"
                                         }
                                     },
@@ -579,7 +574,7 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "error": {
+                                        "message": {
                                             "type": "string"
                                         }
                                     },
@@ -646,7 +641,7 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "error": {
+                                        "message": {
                                             "type": "string"
                                         }
                                     },
