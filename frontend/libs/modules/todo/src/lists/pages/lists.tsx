@@ -29,7 +29,7 @@ export const Lists = () => {
 
   const loadData = async () => {
     try {
-      const response = await ListsService.getAll();
+      const response = await ListsService.getAll({ page: '11' });
       setData(response.data)
     } catch (error) {
       Alert.callError({
