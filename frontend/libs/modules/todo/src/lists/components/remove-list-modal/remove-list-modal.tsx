@@ -1,7 +1,7 @@
 import { FaTrash } from 'react-icons/fa';
 import { Dispatch, SetStateAction, useState } from 'react';
 
-import { Alert } from 'shared/core';
+import { Alert, NotFoundError } from 'shared/core';
 import { Task } from 'shared/domain-types';
 import { ListsService } from 'shared/services';
 import { ConfirmModal, ConfirmModalProps, ModalProps } from 'shared/components';
@@ -39,10 +39,17 @@ export const RemoveListModal: React.FC<Props> = ({
   }
 
   const onError = (error: unknown) => {
-    Alert.callError({
-      title: (error as Error).name,
-      description: (error as Error).message,
-    });
+    if (error instanceof NotFoundError) {
+      Alert.callError({
+        title: (error as Error).name,
+        description: (error as Error).message
+      })
+    } else {
+      Alert.callError({
+        title: (error as Error).name,
+        description: (error as Error).message,
+      });
+    }
   };
 
   const onConfirm = async () => {

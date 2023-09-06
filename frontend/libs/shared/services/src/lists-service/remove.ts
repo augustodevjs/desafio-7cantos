@@ -1,11 +1,11 @@
-import { HttpClient, HttpStatusCode, UnexpectedError, ValidationError } from "shared/core";
 import { setupTodoApiConfig } from "shared/environment";
+import { HttpClient, HttpStatusCode, NotFoundError, UnexpectedError } from "shared/core";
 
 type Input = {
   id: number
 };
 
-export const remove = async ({ id }: Input) => {
+export const remove = async ({ id }: Input): Promise<void> => {
   const response = await HttpClient.AxiosHttpClient.of(
     setupTodoApiConfig()
   ).request({
@@ -13,13 +13,13 @@ export const remove = async ({ id }: Input) => {
     method: "DELETE",
   });
 
-  console.log(response)
+  console.log(response);
 
   switch (response.statusCode) {
-    case HttpStatusCode.Ok:
-      return response.body.message as string;
-    case HttpStatusCode.BadRequest:
-      throw new ValidationError(response.body);
+    case HttpStatusCode.NoContent:
+      return;
+    case HttpStatusCode.NotFound:
+      throw new NotFoundError();
     default:
       throw new UnexpectedError();
   }

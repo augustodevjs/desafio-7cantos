@@ -289,13 +289,6 @@ class TaskController extends Controller
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
-     *     @OA\Response(
-     *         response="500",
-     *         description="Server Error",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
-     *         ),
-     *     ),
      * )
      */
     public function uncompleted(string $id): JsonResponse
@@ -339,13 +332,6 @@ class TaskController extends Controller
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
-     *     @OA\Response(
-     *         response="500",
-     *         description="Server Error",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
-     *         ),
-     *     ),
      * )
      */
     public function completed(string $id): JsonResponse
@@ -387,13 +373,6 @@ class TaskController extends Controller
      *         description="Not Found",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string"),
-     *         ),
-     *     ),
-     *     @OA\Response(
-     *         response="500",
-     *         description="Server Error",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
      *         ),
      *     ),
      * )
