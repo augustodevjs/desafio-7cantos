@@ -1,17 +1,31 @@
 import { useEffect, useState } from 'react'
-import { Button } from 'shared/components'
-import { Logo } from '../../../../../../src/assets'
-import * as S from './lists.styles'
-import { AddListModal, Table } from '../components'
-import { ListsService } from 'shared/services'
+
 import { Task } from 'shared/domain-types'
+import { Button } from 'shared/components'
 import { Alert, useModal } from 'shared/core'
+import { ListsService } from 'shared/services'
+
+import * as S from './lists.styles'
+import { AddListModal, EditListModal, RemoveListModal, Table } from '../components'
+import { Logo } from '../../../../../../src/assets'
 
 export const Lists = () => {
+  const [data, setData] = useState<Task[]>([]);
+  const [selectedTask, setSelectedTask] = useState<Task>();
+
   const [isAddModalOpen, openAddModal, closeAddModal] = useModal();
+  const [isEditModalOpen, openEditModal, closeEditModal] = useModal();
+  const [isRemoveModalOpen, openRemoveModal, closeRemoveModal] = useModal();
 
+  const handleEdit = (list: Task) => {
+    setSelectedTask(list);
+    openEditModal();
+  };
 
-  const [data, setData] = useState<Task[]>([])
+  const handleRemove = (list: Task) => {
+    setSelectedTask(list);
+    openRemoveModal();
+  };
 
   const loadData = async () => {
     try {
@@ -53,8 +67,8 @@ export const Lists = () => {
                 description={data.description}
                 responsible={data.responsible}
                 title={data.title}
-                onDelete={() => console.log(data)}
-                onEdit={() => console.log(data)}
+                onDelete={() => handleRemove(data)}
+                onEdit={() => handleEdit(data)}
               />
             ))}
           </ul>
@@ -69,6 +83,21 @@ export const Lists = () => {
         setData={setData}
         isOpen={isAddModalOpen}
         onRequestClose={closeAddModal}
+      />
+
+      <EditListModal
+        setData={setData}
+        id={selectedTask?.id}
+        isOpen={isEditModalOpen}
+        onRequestClose={closeEditModal}
+      />
+
+      <RemoveListModal
+        id={selectedTask?.id}
+        setData={setData}
+        title={selectedTask?.title}
+        isOpen={isRemoveModalOpen}
+        onRequestClose={closeRemoveModal}
       />
     </S.Container>
   )

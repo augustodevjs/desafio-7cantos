@@ -7,7 +7,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { ListsService } from 'shared/services';
 import { Alert, ValidationError } from 'shared/core';
 import { Button, Modal, ModalProps } from 'shared/components';
-import { CreateTaskInputModel, Task, createListFormValidation, toTask } from 'shared/domain-types';
+import { CreateTaskInputModel, FormTaskInputModel, Task, listFormValidation, toTask } from 'shared/domain-types';
 
 import { ListForm } from '../../components';
 import * as S from './add-list-modal.styles'
@@ -25,7 +25,7 @@ export const AddListModal: React.FC<Props> = ({
 
   const form = useForm<CreateTaskInputModel>({
     mode: 'onChange',
-    resolver: yupResolver(createListFormValidation),
+    resolver: yupResolver(listFormValidation),
   });
 
   const submitButton = (
@@ -45,7 +45,7 @@ export const AddListModal: React.FC<Props> = ({
     </Button>
   );
 
-  const onSuccess = async (data: CreateTaskInputModel) => {
+  const onSuccess = async (data: FormTaskInputModel) => {
     const response = await ListsService.add({ data });
 
     Alert.callSuccess({
@@ -79,7 +79,7 @@ export const AddListModal: React.FC<Props> = ({
     }
   };
 
-  const onSubmit: SubmitHandler<CreateTaskInputModel> = async (data) => {
+  const onSubmit: SubmitHandler<FormTaskInputModel> = async (data) => {
     setIsLoading(true);
 
     try {

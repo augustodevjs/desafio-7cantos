@@ -1,25 +1,15 @@
-type GetDataViewInputModel = {
-  id: number;
-  title: string;
-  description: string;
-  responsible: string;
-  completed: boolean;
-}
-
-type UpdateDataViewInputModel = {
-  id: number;
-  title: string;
-  description: string;
-  responsible: string;
-  completed: boolean;
-}
-
 export type Task = {
   id: number;
   title: string;
   description: string;
   responsible: string;
   completed: boolean;
+}
+
+export type FormTaskInputModel = {
+  title: string;
+  description: string;
+  responsible: string;
 }
 
 export type CreateTaskInputModel = {
@@ -42,11 +32,19 @@ export type CreateViewInputModel = {
 }
 
 export type GetViewInputModel = {
-  data: GetDataViewInputModel;
+  id: number;
+  title: string;
+  description: string;
+  responsible: string;
+  completed: boolean;
 }
 
 export type UpdateViewInputModel = {
-  data: UpdateDataViewInputModel;
+  id: number;
+  title: string;
+  description: string;
+  responsible: string;
+  completed: boolean;
 }
 
 export type DeleteViewInputModel = {

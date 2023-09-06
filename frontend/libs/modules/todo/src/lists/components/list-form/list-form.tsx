@@ -1,7 +1,7 @@
 import { SubmitHandler, useFormContext } from 'react-hook-form';
 
 import { TextInput } from 'shared/components';
-import { CreateTaskInputModel } from 'shared/domain-types';
+import { CreateTaskInputModel, FormTaskInputModel } from 'shared/domain-types';
 
 import * as S from './list-form.styles';
 
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const ListForm: React.FC<Props> = ({ onSubmit, id }) => {
-  const { register, handleSubmit, formState } = useFormContext<CreateTaskInputModel>();
+  const { register, handleSubmit, formState } = useFormContext<FormTaskInputModel>();
 
   return (
     <S.Form autoComplete='off' onSubmit={handleSubmit(onSubmit)} id={id}>

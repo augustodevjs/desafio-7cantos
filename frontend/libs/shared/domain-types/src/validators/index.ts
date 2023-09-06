@@ -1,1 +1,1 @@
-export * from './create-list-form-validation'
+export * from './list-form-validation'

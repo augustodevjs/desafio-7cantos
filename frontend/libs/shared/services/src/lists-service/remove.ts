@@ -1,23 +1,23 @@
 import { HttpClient, HttpStatusCode, UnexpectedError, ValidationError } from "shared/core";
-import { CreateTaskInputModel, CreateViewInputModel } from "shared/domain-types";
 import { setupTodoApiConfig } from "shared/environment";
 
 type Input = {
-  data: CreateTaskInputModel
+  id: number
 };
 
-export const add = async ({ data }: Input): Promise<CreateViewInputModel> => {
+export const remove = async ({ id }: Input) => {
   const response = await HttpClient.AxiosHttpClient.of(
     setupTodoApiConfig()
   ).request({
-    url: "/tasks",
-    method: "POST",
-    body: data,
+    url: `/tasks/${id}`,
+    method: "DELETE",
   });
 
+  console.log(response)
+
   switch (response.statusCode) {
-    case HttpStatusCode.Created:
-      return response.body.data as CreateViewInputModel;
+    case HttpStatusCode.Ok:
+      return response.body.message as string;
     case HttpStatusCode.BadRequest:
       throw new ValidationError(response.body);
     default:
