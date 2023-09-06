@@ -1,9 +1,13 @@
-export class ValidationError extends Error {
-  errors: string[];
+type ErrorMessage = {
+  message: string
+}
 
-  constructor(errors: string[]) {
+export class ValidationError extends Error {
+  error: ErrorMessage;
+
+  constructor(error: ErrorMessage) {
     super('Erro de Validação');
     this.name = 'Erro de Validação';
-    this.errors = errors;
+    this.error = error;
   }
 }

@@ -1,15 +1,17 @@
+import { useEffect, useState } from 'react'
 import { Button } from 'shared/components'
 import { Logo } from '../../../../../../src/assets'
 import * as S from './lists.styles'
-import { Table } from '../components'
+import { AddListModal, Table } from '../components'
 import { ListsService } from 'shared/services'
 import { Task } from 'shared/domain-types'
-import { useEffect, useState } from 'react'
-import { Alert } from 'shared/core'
+import { Alert, useModal } from 'shared/core'
 
 export const Lists = () => {
-  const [data, setData] = useState<Task[]>([])
+  const [isAddModalOpen, openAddModal, closeAddModal] = useModal();
 
+
+  const [data, setData] = useState<Task[]>([])
 
   const loadData = async () => {
     try {
@@ -36,13 +38,12 @@ export const Lists = () => {
         </S.Content>
 
         <S.ButtonGroup>
-          <Button>Nova Tarefa</Button>
+          <Button onClick={openAddModal}>Nova Tarefa</Button>
         </S.ButtonGroup>
       </S.Header>
 
 
       {data.length !== 0 ? (
-
         <S.Tasks>
           <ul>
             {data.map(data => (
@@ -63,6 +64,12 @@ export const Lists = () => {
           Não há registros para exibir
         </S.NoData>
       )}
+
+      <AddListModal
+        setData={setData}
+        isOpen={isAddModalOpen}
+        onRequestClose={closeAddModal}
+      />
     </S.Container>
   )
 }

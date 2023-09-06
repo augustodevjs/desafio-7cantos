@@ -6,7 +6,7 @@ export const getAll = async (): Promise<TaskPagination> => {
   const response = await HttpClient.AxiosHttpClient.of(
     setupTodoApiConfig()
   ).request({
-    url: "/tasks",
+    url: "/tasks?page=11",
     method: "GET",
   });
 

@@ -1,10 +1,3 @@
-type CreateDataViewInputModel = {
-  id: number;
-  title: string;
-  description: string;
-  responsible: string;
-}
-
 type GetDataViewInputModel = {
   id: number;
   title: string;
@@ -42,7 +35,10 @@ export type UpdateTaskInputModel = {
 }
 
 export type CreateViewInputModel = {
-  data: CreateDataViewInputModel;
+  id: number;
+  title: string;
+  description: string;
+  responsible: string;
 }
 
 export type GetViewInputModel = {
