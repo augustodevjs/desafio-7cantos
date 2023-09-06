@@ -1,12 +1,12 @@
 import { HttpClient, HttpStatusCode, UnexpectedError } from "shared/core";
-import { GetViewInputModel } from "shared/domain-types";
+import { GetIdViewInputModel } from "shared/domain-types";
 import { setupTodoApiConfig } from "shared/environment";
 
 type Input = {
   id: number
 }
 
-export const loadById = async ({ id }: Input): Promise<GetViewInputModel> => {
+export const loadById = async ({ id }: Input): Promise<GetIdViewInputModel> => {
   const response = await HttpClient.AxiosHttpClient.of(
     setupTodoApiConfig()
   ).request({
@@ -16,7 +16,7 @@ export const loadById = async ({ id }: Input): Promise<GetViewInputModel> => {
 
   switch (response.statusCode) {
     case HttpStatusCode.Ok:
-      return response.body.data as GetViewInputModel;
+      return response.body.data as GetIdViewInputModel;
     default:
       throw new UnexpectedError();
   }
