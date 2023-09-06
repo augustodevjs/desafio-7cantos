@@ -5,11 +5,11 @@ type Input = {
   id: number;
 };
 
-export const completed = async ({ id }: Input): Promise<void> => {
+export const uncompleted = async ({ id }: Input): Promise<void> => {
   const response = await HttpClient.AxiosHttpClient.of(
     setupTodoApiConfig()
   ).request({
-    url: `/tasks/${id}/completed`,
+    url: `/tasks/${id}/uncompleted`,
     method: "PATCH",
   });
 
