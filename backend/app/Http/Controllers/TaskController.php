@@ -26,7 +26,7 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="200",
-     *         description="Successful operation",
+     *         description="Success",
      *         @OA\JsonContent(
      *                 @OA\Property(property="current_page", type="integer"),
      *                 @OA\Property(property="data", type="array",
@@ -59,7 +59,7 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="500",
-     *         description="Internal Server Error",
+     *         description="Server Error",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string"),
      *         ),
@@ -95,7 +95,7 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="200",
-     *         description="Successful operation",
+     *         description="Success",
      *         @OA\JsonContent(
      *             @OA\Property(property="data", type="object",
      *                 @OA\Property(property="id", type="integer"),
@@ -125,7 +125,7 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="500",
-     *         description="Internal Server Error",
+     *         description="Server Error",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string"),
      *         ),
@@ -162,7 +162,7 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="200",
-     *         description="Successful operation",
+     *         description="Success",
      *         @OA\JsonContent(
      *             @OA\Property(property="data", type="object",
      *                 @OA\Property(property="id", type="integer"),
@@ -175,14 +175,14 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="404",
-     *         description="Task not found",
+     *         description="Not Found",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
      *         response="500",
-     *         description="Internal Server Error",
+     *         description="Server Error",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string"),
      *         ),
@@ -226,7 +226,7 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="200",
-     *         description="Successful operation",
+     *         description="Success",
      *         @OA\JsonContent(
      *             @OA\Property(property="data", type="object",
      *                 @OA\Property(property="id", type="integer"),
@@ -257,14 +257,14 @@ class TaskController extends Controller
      *     ),
      *     @OA\Response(
      *         response="404",
-     *         description="Task not found",
+     *         description="Not Found",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
      *         response="500",
-     *         description="Internal Server Error",
+     *         description="Server Error",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string"),
      *         ),
@@ -307,22 +307,19 @@ class TaskController extends Controller
      *         @OA\Schema(type="string"),
      *     ),
      *     @OA\Response(
-     *         response="200",
-     *         description="Successful operation",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="message", type="string"),
-     *         ),
+     *         response="204",
+     *         description="No Content",
      *     ),
      *     @OA\Response(
      *         response="404",
-     *         description="Task not found",
+     *         description="Not Found",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
      *         response="500",
-     *         description="Internal Server Error",
+     *         description="Server Error",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string"),
      *         ),
@@ -341,7 +338,7 @@ class TaskController extends Controller
             $existingTask->completed = false;
             $existingTask->save();
 
-            return response()->json(['message' => 'Tarefa marcada como não concluída com sucesso']);
+            return response()->json([], 204);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Erro ao atualizar o status da tarefa'], 500);
         }
@@ -360,22 +357,19 @@ class TaskController extends Controller
      *         @OA\Schema(type="string"),
      *     ),
      *     @OA\Response(
-     *         response="200",
-     *         description="Successful operation",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="message", type="string"),
-     *         ),
+     *         response="204",
+     *         description="No Content",
      *     ),
      *     @OA\Response(
      *         response="404",
-     *         description="Task not found",
+     *         description="Not Found",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
      *         response="500",
-     *         description="Internal Server Error",
+     *         description="Server Error",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string"),
      *         ),
@@ -394,7 +388,7 @@ class TaskController extends Controller
             $existingTask->completed = true;
             $existingTask->save();
 
-            return response()->json(['message' => 'Tarefa marcada como concluída com sucesso']);
+            return response()->json([], 204);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Erro ao atualizar o status da tarefa'], 500);
         }
@@ -413,22 +407,19 @@ class TaskController extends Controller
      *         @OA\Schema(type="string"),
      *     ),
      *     @OA\Response(
-     *         response="200",
-     *         description="Successful operation",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="message", type="string"),
-     *         ),
+     *         response="204",
+     *         description="No Content",
      *     ),
      *     @OA\Response(
      *         response="404",
-     *         description="Task not found",
+     *         description="Not Found",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
      *     @OA\Response(
      *         response="500",
-     *         description="Internal Server Error",
+     *         description="Server Error",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string"),
      *         ),
@@ -446,7 +437,7 @@ class TaskController extends Controller
 
             $existingTask->delete();
 
-            return response()->json(['message' => 'Tarefa excluída com sucesso']);
+            return response()->json([], 204);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Erro ao excluir a tarefa'], 500);
         }
