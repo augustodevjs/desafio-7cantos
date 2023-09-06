@@ -17,6 +17,7 @@ export type FormTaskViewModel = {
   title: string;
   description: string;
   responsible: string;
+  completed: boolean;
 };
 
 export type CreateTaskInputModel = {
@@ -38,7 +39,7 @@ export type CreateViewInputModel = {
   responsible: string;
 }
 
-export type GetViewInputModel = {
+export type GetIdViewInputModel = {
   id: number;
   title: string;
   description: string;

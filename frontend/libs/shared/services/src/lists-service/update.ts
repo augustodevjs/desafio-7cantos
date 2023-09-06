@@ -1,13 +1,13 @@
 import { setupTodoApiConfig } from "shared/environment";
-import { UpdateTaskInputModel, UpdateViewInputModel } from "shared/domain-types";
+import { FormTaskInputModel, FormTaskViewModel } from "shared/domain-types";
 import { HttpClient, HttpStatusCode, UnexpectedError, ValidationError } from "shared/core";
 
 type Input = {
   id: number;
-  data: UpdateTaskInputModel
+  data: FormTaskInputModel
 };
 
-export const update = async ({ data, id }: Input): Promise<UpdateViewInputModel> => {
+export const update = async ({ data, id }: Input): Promise<FormTaskViewModel> => {
   const response = await HttpClient.AxiosHttpClient.of(
     setupTodoApiConfig()
   ).request({
@@ -22,7 +22,7 @@ export const update = async ({ data, id }: Input): Promise<UpdateViewInputModel>
 
   switch (response.statusCode) {
     case HttpStatusCode.Ok:
-      return response.body.data as UpdateViewInputModel;
+      return response.body.data as FormTaskViewModel;
     case HttpStatusCode.BadRequest:
       throw new ValidationError(response.body);
     default:

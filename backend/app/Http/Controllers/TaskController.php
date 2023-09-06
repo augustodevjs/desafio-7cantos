@@ -241,13 +241,6 @@ class TaskController extends Controller
      *             @OA\Property(property="message", type="string"),
      *         ),
      *     ),
-     *     @OA\Response(
-     *         response="500",
-     *         description="Server Error",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
-     *         ),
-     *     ),
      * )
      */
     public function update(Request $request, string $id): JsonResponse

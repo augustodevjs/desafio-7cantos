@@ -61,7 +61,7 @@ export const EditListModal: React.FC<Props> = ({
 
       setData((prevData) =>
         prevData.map((list) =>
-          list.id === response.id ? { ...response } : list,
+          list.id === response.id ? { ...response, } : list,
         ),
       );
 
