@@ -69,7 +69,7 @@ class TaskController extends Controller
     public function getAll(): JsonResponse
     {
         try {
-            $tasks = Task::paginate(10);
+            $tasks = Task::paginate(6);
             $tasks->getCollection()->transform(function ($task) {
                 return $this->transformCompleted($task);
             });

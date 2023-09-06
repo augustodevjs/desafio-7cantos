@@ -1,1 +1,1 @@
-export * from './shared-services';
+export * as ListsService from './lists-service'

@@ -2,17 +2,20 @@ import { FaCheck, FaEdit, FaTrash } from "react-icons/fa"
 import * as S from './table.styles'
 
 type TableProps = {
-  text: string;
+  status: boolean;
+  title: string;
+  description: string;
+  responsible: string;
   onDelete: () => void
   onEdit: () => void
 }
 
-export const Table: React.FC<TableProps> = ({ text, onDelete, onEdit }) => {
+export const Table: React.FC<TableProps> = ({ status, title, description, responsible, onDelete, onEdit }) => {
   return (
     <li>
       <S.Container>
         <S.Header>
-          <p className='concluded'>Status: Em Atraso</p>
+          <p className='concluded'>{status ? 'Concluído' : 'Não Concluído'}</p>
 
           <S.IconGroup>
             <FaCheck className="completed" />
@@ -22,9 +25,9 @@ export const Table: React.FC<TableProps> = ({ text, onDelete, onEdit }) => {
         </S.Header>
 
         <S.Content>
-          <p className='title'>Título: Título da Task</p>
-          <span className='description'>Descrição: descrição da Task</span>
-          <p className='responsible'>Responsável: Responsável da Task</p>
+          <p className='title'>Título: {title}</p>
+          <span className='description'>Descrição: {description}</span>
+          <p className='responsible'>Responsável: {responsible}</p>
         </S.Content>
 
       </S.Container>
