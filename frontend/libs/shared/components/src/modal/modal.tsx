@@ -1,4 +1,4 @@
-import { Button, ModalProps } from '..'
+import { Button, ModalProps } from '..';
 import { IoMdClose } from 'react-icons/io';
 import * as S from './modal.styles';
 
@@ -33,7 +33,9 @@ export const Modal: React.FC<ModalProps> = ({
         <Button variant="danger" onClick={onRequestClose}>
           Fechar
         </Button>
-        {actions?.map((action) => action)}
+        {actions?.map((action, index) => (
+          <div key={index}>{action}</div>
+        ))}
       </S.ButtonGroup>
     </S.Modal>
   );
