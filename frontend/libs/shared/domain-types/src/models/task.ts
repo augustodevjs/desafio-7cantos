@@ -46,23 +46,3 @@ export type GetIdViewInputModel = {
   responsible: string;
   completed: boolean;
 }
-
-export type UpdateViewInputModel = {
-  id: number;
-  title: string;
-  description: string;
-  responsible: string;
-  completed: boolean;
-}
-
-export type DeleteViewInputModel = {
-  message: string;
-}
-
-export type UncompletedViewInputModel = {
-  message: string;
-}
-
-export type CompletedViewInputModel = {
-  message: string;
-}
