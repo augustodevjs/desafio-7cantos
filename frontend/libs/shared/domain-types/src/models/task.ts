@@ -12,6 +12,13 @@ export type FormTaskInputModel = {
   responsible: string;
 }
 
+export type FormTaskViewModel = {
+  id: number;
+  title: string;
+  description: string;
+  responsible: string;
+};
+
 export type CreateTaskInputModel = {
   title: string;
   description: string;

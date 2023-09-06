@@ -6,8 +6,8 @@ import { Alert, useModal } from 'shared/core'
 import { ListsService } from 'shared/services'
 
 import * as S from './lists.styles'
-import { AddListModal, EditListModal, RemoveListModal, Table } from '../components'
 import { Logo } from '../../../../../../src/assets'
+import { AddListModal, EditListModal, RemoveListModal, Table } from '../components'
 
 export const Lists = () => {
   const [data, setData] = useState<Task[]>([]);

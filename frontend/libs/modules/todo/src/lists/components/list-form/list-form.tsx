@@ -1,12 +1,12 @@
 import { SubmitHandler, useFormContext } from 'react-hook-form';
 
 import { TextInput } from 'shared/components';
-import { CreateTaskInputModel, FormTaskInputModel } from 'shared/domain-types';
+import { FormTaskInputModel } from 'shared/domain-types';
 
 import * as S from './list-form.styles';
 
 type Props = {
-  onSubmit: SubmitHandler<CreateTaskInputModel>;
+  onSubmit: SubmitHandler<FormTaskInputModel>;
   id: string;
 };
 

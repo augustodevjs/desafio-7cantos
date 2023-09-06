@@ -63,12 +63,12 @@ class TaskController extends Controller
     {
         try {
             $tasks = Task::paginate(6);
-            $tasks->getCollectiasdaon()->transform(function ($task) {
+            $tasks->getCollection()->transform(function ($task) {
                 return $this->transformCompleted($task);
             });
             return response()->json([$tasks]);
         } catch (\Exception $e) {
-            return response()->json([], 500);
+            return response()->json(['error' => 'Erro ao obter as tarefas'], 500);
         }
     }
 
@@ -114,13 +114,6 @@ class TaskController extends Controller
      *                      @OA\Items(type="string")
      *                  ),
      *             ),
-     *         ),
-     *     ),
-     *     @OA\Response(
-     *         response="500",
-     *         description="Server Error",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="error", type="string"),
      *         ),
      *     ),
      * )
