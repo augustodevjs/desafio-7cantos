@@ -1,8 +1,9 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import * as S from './not-found.styles'
 import { env } from "shared/environment"
 import { Button } from "shared/components"
+
+import * as S from './not-found.styles'
 
 export const NotFound = () => {
   const navigate = useNavigate()

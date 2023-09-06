@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "modules/authentication": ["libs/modules/authentication/src/index.ts"],
       "modules/todo": ["libs/modules/todo/src/index.ts"],
       "shared/components": ["libs/shared/components/src/index.ts"],
       "shared/core": ["libs/shared/core/src/index.ts"],
