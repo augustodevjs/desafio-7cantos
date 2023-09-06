@@ -1,6 +1,6 @@
 import { setupTodoApiConfig } from "shared/environment";
 import { FormTaskInputModel, FormTaskViewModel } from "shared/domain-types";
-import { HttpClient, HttpStatusCode, UnexpectedError, ValidationError } from "shared/core";
+import { HttpClient, HttpStatusCode, NotFoundError, UnexpectedError, ValidationError } from "shared/core";
 
 type Input = {
   id: number;
@@ -25,6 +25,8 @@ export const update = async ({ data, id }: Input): Promise<FormTaskViewModel> =>
       return response.body.data as FormTaskViewModel;
     case HttpStatusCode.BadRequest:
       throw new ValidationError(response.body);
+    case HttpStatusCode.NotFound:
+      throw new NotFoundError();
     default:
       throw new UnexpectedError();
   }

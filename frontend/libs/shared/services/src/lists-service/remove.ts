@@ -13,8 +13,6 @@ export const remove = async ({ id }: Input): Promise<void> => {
     method: "DELETE",
   });
 
-  console.log(response);
-
   switch (response.statusCode) {
     case HttpStatusCode.NoContent:
       return;

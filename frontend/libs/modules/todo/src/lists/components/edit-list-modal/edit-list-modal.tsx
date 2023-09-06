@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
 import { ListsService } from 'shared/services';
-import { Alert, ValidationError } from 'shared/core';
+import { Alert, NotFoundError, ValidationError } from 'shared/core';
 import { Button, Modal, ModalProps } from 'shared/components';
 import { FormTaskInputModel, Task, UpdateTaskInputModel, listFormValidation } from 'shared/domain-types';
 
@@ -37,10 +37,19 @@ export const EditListModal: React.FC<Props> = ({
         form.reset(response)
       }
     } catch (error) {
-      Alert.callError({
-        title: (error as Error).name,
-        description: (error as Error).message,
-      });
+      if (error instanceof NotFoundError) {
+        Alert.callError({
+          title: (error as Error).name,
+          description: (error as Error).message,
+          onConfirm: onRequestClose
+        });
+      } else {
+        Alert.callError({
+          title: (error as Error).name,
+          description: (error as Error).message,
+          onConfirm: onRequestClose
+        });
+      }
     }
   }
 
@@ -79,6 +88,12 @@ export const EditListModal: React.FC<Props> = ({
         description: error.error.message,
         onConfirm: onRequestClose
       });
+    } else if (error instanceof NotFoundError) {
+      Alert.callError({
+        title: (error as Error).name,
+        description: (error as Error).message,
+        onConfirm: onRequestClose
+      })
     } else {
       Alert.callError({
         title: (error as Error).name,

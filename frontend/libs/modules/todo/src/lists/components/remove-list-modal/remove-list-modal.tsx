@@ -42,12 +42,14 @@ export const RemoveListModal: React.FC<Props> = ({
     if (error instanceof NotFoundError) {
       Alert.callError({
         title: (error as Error).name,
-        description: (error as Error).message
+        description: (error as Error).message,
+        onConfirm: onRequestClose
       })
     } else {
       Alert.callError({
         title: (error as Error).name,
         description: (error as Error).message,
+        onConfirm: onRequestClose
       });
     }
   };

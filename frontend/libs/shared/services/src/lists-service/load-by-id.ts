@@ -1,4 +1,4 @@
-import { HttpClient, HttpStatusCode, UnexpectedError } from "shared/core";
+import { HttpClient, HttpStatusCode, NotFoundError, UnexpectedError } from "shared/core";
 import { GetIdViewInputModel } from "shared/domain-types";
 import { setupTodoApiConfig } from "shared/environment";
 
@@ -17,6 +17,8 @@ export const loadById = async ({ id }: Input): Promise<GetIdViewInputModel> => {
   switch (response.statusCode) {
     case HttpStatusCode.Ok:
       return response.body.data as GetIdViewInputModel;
+    case HttpStatusCode.NotFound:
+      throw new NotFoundError();
     default:
       throw new UnexpectedError();
   }
