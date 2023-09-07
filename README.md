@@ -1,24 +1,21 @@
 ## Front End
 
-<div style="display: grid; grid-template-columns: 1fr 1fr;">
-<h1><img width="680px" height="100%" src="./libs/shared/assets/src/images/lists-todo.png"></h1>
-<h1><img width="680px" height="100%" src="./libs/shared/assets/src/images/add-lists.png"></h1>
-<h1><img width="680px" height="100%" src="./libs/shared/assets/src/images/edit-tasks.png"></h1>
-<h1><img width="680px" height="100%" src="./libs/shared/assets/src/images/delete-tasks.png"></h1>
-<h1><img width="680px" height="100%" src="./libs/shared/assets/src/images/status-lists.png"></h1>
-<h1><img width="680px" height="100%" src="./libs/shared/assets/src/images/not-found.png"></h1>
-</div>
-
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/lists-todo.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/add-lists.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/edit-tasks.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/delete-tasks.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/status-lists.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/not-found.png"></h1>
 <hr>
 <br>
 
 ## Back End
 
-<h1><img width="100%" src="./libs/shared/assets/src/images/tasks-api-swagger.png"></h1>
-<h1><img width="100%" src="./libs/shared/assets/src/images/xamp.png"></h1>
-<h1><img width="100%" src="./libs/shared/assets/src/images/phpadmin.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/tasks-api-swagger.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/xamp.png"></h1>
+<h1><img width="100%" src="./frontend/libs/shared/assets/src/images/phpadmin.png"></h1>
 
-## How to run the project
+## Como rodar o projeto
 
 ```bash
 # Faça o clone do projeto
