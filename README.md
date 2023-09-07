@@ -12,9 +12,18 @@ https://github.com/augustodevjs/desafio-7cantos/assets/90275457/c3098031-a4bc-48
 
 ## Back End
 
+https://github.com/augustodevjs/desafio-7cantos/assets/90275457/0405cfa9-8fdf-4521-bb80-6a4ac4038dc2
 <h1><img width="100%" src="./frontend/libs/shared/assets/src/images/tasks-api-swagger.png"></h1>
 <h1><img width="100%" src="./frontend/libs/shared/assets/src/images/xamp.png"></h1>
 <h1><img width="100%" src="./frontend/libs/shared/assets/src/images/phpadmin.png"></h1>
+
+## Explicações
+
+Projeto full-stack desenvolvido com React no FrontEnd, usando NxWorkspace como ferramenta para criar projetos front-ends escaláveis. A estrutura do projeto segue os princípios da arquitetura limpa, dividindo-o em camadas bem definidas, incluindo: Service, Domain-types, Modules, Core, environment e components.
+
+No FrontEnd, realizei todas as validações de erros provenientes da API, incorporando classes especializadas para o tratamento desses erros. Isso garante uma experiência de usuário suave e tratamento adequado de problemas que possam surgir durante a interação com a aplicação.
+
+No BackEnd, utilizei PHP com Laravel para implementar as operações CRUD relacionadas ao desafio. Além disso, incluí todas as propriedades das models mencionadas no documento do desafio. Para facilitar o entendimento e integração com o FrontEnd, também disponibilizei uma documentação Swagger completa, que permite visualizar e compreender como a API funciona.
 
 ## Como rodar o projeto
 
