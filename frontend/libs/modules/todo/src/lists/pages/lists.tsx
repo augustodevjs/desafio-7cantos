@@ -7,7 +7,7 @@ import { ListsService } from 'shared/services'
 
 import * as S from './lists.styles'
 import { Logo } from '../../../../../../src/assets'
-import { AddListModal, EditListModal, RemoveListModal, Table } from '../components'
+import { AddListModal, StatusCompletedModal, EditListModal, RemoveListModal, Table } from '../components'
 
 export const Lists = () => {
   const [data, setData] = useState<Task[]>([]);
@@ -16,6 +16,7 @@ export const Lists = () => {
   const [isAddModalOpen, openAddModal, closeAddModal] = useModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useModal();
   const [isRemoveModalOpen, openRemoveModal, closeRemoveModal] = useModal();
+  const [isConcludedModalOpen, openConcludedModal, closeConcludedModal] = useModal();
 
   const handleEdit = (list: Task) => {
     setSelectedTask(list);
@@ -26,6 +27,11 @@ export const Lists = () => {
     setSelectedTask(list);
     openRemoveModal();
   };
+
+  const handleCompleted = (list: Task) => {
+    setSelectedTask(list);
+    openConcludedModal();
+  }
 
   const loadData = async () => {
     try {
@@ -63,12 +69,13 @@ export const Lists = () => {
             {data.map(data => (
               <Table
                 key={data.id}
+                title={data.title}
                 status={data.completed}
                 description={data.description}
                 responsible={data.responsible}
-                title={data.title}
-                onDelete={() => handleRemove(data)}
                 onEdit={() => handleEdit(data)}
+                onDelete={() => handleRemove(data)}
+                concluded={() => handleCompleted(data)}
               />
             ))}
           </ul>
@@ -83,6 +90,15 @@ export const Lists = () => {
         setData={setData}
         isOpen={isAddModalOpen}
         onRequestClose={closeAddModal}
+      />
+
+      <StatusCompletedModal
+        id={selectedTask?.id}
+        setData={setData}
+        completed={selectedTask?.completed}
+        title={selectedTask?.title}
+        isOpen={isConcludedModalOpen}
+        onRequestClose={closeConcludedModal}
       />
 
       <EditListModal

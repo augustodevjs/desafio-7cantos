@@ -14,7 +14,7 @@ export const completed = async ({ id }: Input): Promise<void> => {
   });
 
   switch (response.statusCode) {
-    case HttpStatusCode.Created:
+    case HttpStatusCode.NoContent:
       return;
     case HttpStatusCode.NotFound:
       throw new NotFoundError();

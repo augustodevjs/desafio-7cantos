@@ -1,4 +1,5 @@
 import { FaCheck, FaEdit, FaTrash } from "react-icons/fa"
+import { GrClose } from 'react-icons/gr';
 import * as S from './table.styles'
 
 type TableProps = {
@@ -6,19 +7,20 @@ type TableProps = {
   title: string;
   description: string;
   responsible: string;
+  concluded: () => void;
   onDelete: () => void
   onEdit: () => void
 }
 
-export const Table: React.FC<TableProps> = ({ status, title, description, responsible, onDelete, onEdit }) => {
+export const Table: React.FC<TableProps> = ({ status, title, description, responsible, onDelete, onEdit, concluded }) => {
   return (
     <li>
       <S.Container>
-        <S.Header>
-          <p className='concluded'>{status ? 'Concluído' : 'Não Concluído'}</p>
+        <S.Header status={status}>
+          <p className='concluded'>{status ? 'Concluída' : 'Não Concluída'}</p>
 
           <S.IconGroup>
-            <FaCheck className="completed" />
+            {status ? <GrClose className="uncompleted" onClick={concluded} /> : <FaCheck className="completed" onClick={concluded} />}
             <FaEdit className="edit" onClick={onEdit} />
             <FaTrash className="delete" onClick={onDelete} />
           </S.IconGroup>
@@ -29,7 +31,6 @@ export const Table: React.FC<TableProps> = ({ status, title, description, respon
           <span className='description'>Descrição: {description}</span>
           <p className='responsible'>Responsável: {responsible}</p>
         </S.Content>
-
       </S.Container>
     </li>
   )

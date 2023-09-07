@@ -1,24 +1,23 @@
 import styled from "styled-components"
 
+type CompletedProps = {
+  status?: boolean
+}
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
+`;
 
-  .concluded {
-    color: #F75A68;
-    font-weight: 500;
-    width: 100%;
-  }
-  `;
-
-export const Header = styled.div`
+export const Header = styled.div<CompletedProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid white;
+  color: ${({ status }) => (status ? '#00B37E' : '#F75A68')};
 `;
 
 export const Content = styled.div`
@@ -44,6 +43,12 @@ export const IconGroup = styled.div`
 
   .completed {
     fill: #00B37E;
+  }
+
+  .uncompleted {
+    path {
+      stroke: #f7bc5a;
+    }
   }
 
   .edit {
