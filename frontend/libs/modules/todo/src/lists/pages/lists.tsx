@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 
+import { Logo } from 'shared/assets'
 import { Task } from 'shared/domain-types'
 import { Button } from 'shared/components'
 import { Alert, useModal } from 'shared/core'
 import { ListsService } from 'shared/services'
 
 import * as S from './lists.styles'
-import { Logo } from '../../../../../../src/assets'
 import { AddListModal, StatusCompletedModal, EditListModal, RemoveListModal, Table } from '../components'
 
 export const Lists = () => {

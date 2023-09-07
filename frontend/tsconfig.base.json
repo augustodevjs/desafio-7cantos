@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "modules/todo": ["libs/modules/todo/src/index.ts"],
+      "shared/assets": ["libs/shared/assets/src/index.ts"],
       "shared/components": ["libs/shared/components/src/index.ts"],
       "shared/core": ["libs/shared/core/src/index.ts"],
       "shared/domain-types": ["libs/shared/domain-types/src/index.ts"],
