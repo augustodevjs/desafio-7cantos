@@ -35,8 +35,8 @@ export const Lists = () => {
 
   const loadData = async () => {
     try {
-      const response = await ListsService.getAll({ page: '11' });
-      setData(response.data)
+      const response = await ListsService.getAll();
+      setData(response)
     } catch (error) {
       Alert.callError({
         title: (error as Error).name,
@@ -61,7 +61,6 @@ export const Lists = () => {
           <Button onClick={openAddModal}>Nova Tarefa</Button>
         </S.ButtonGroup>
       </S.Header>
-
 
       {data.length !== 0 ? (
         <S.Tasks>

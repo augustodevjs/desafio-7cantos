@@ -1,22 +1,18 @@
-import { TaskPagination } from "shared/domain-types";
+import { Task } from "shared/domain-types";
 import { setupTodoApiConfig } from "shared/environment";
 import { HttpClient, HttpStatusCode, UnexpectedError } from "shared/core";
 
-type Input = {
-  page: string;
-}
-
-export const getAll = async ({ page }: Input): Promise<TaskPagination> => {
+export const getAll = async (): Promise<Task[]> => {
   const response = await HttpClient.AxiosHttpClient.of(
     setupTodoApiConfig()
   ).request({
-    url: `/tasks?page=${page}`,
+    url: `/tasks`,
     method: "GET",
   });
 
   switch (response.statusCode) {
     case HttpStatusCode.Ok:
-      return response.body[0] as TaskPagination;
+      return response.body as Task[];
     default:
       throw new UnexpectedError();
   }

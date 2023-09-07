@@ -62,11 +62,11 @@ class TaskController extends Controller
     public function getAll(): JsonResponse
     {
         try {
-            $tasks = Task::paginate(6);
-            $tasks->getCollection()->transform(function ($task) {
+            $tasks = Task::all();
+            $tasks->transform(function ($task) {
                 return $this->transformCompleted($task);
             });
-            return response()->json([$tasks]);
+            return response()->json($tasks);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Erro ao obter as tarefas'], 500);
         }
