@@ -7,9 +7,9 @@ type TableProps = {
   title: string;
   description: string;
   responsible: string;
-  concluded: () => void;
-  onDelete: () => void
   onEdit: () => void
+  onDelete: () => void
+  concluded: () => void;
 }
 
 export const Table: React.FC<TableProps> = ({ status, title, description, responsible, onDelete, onEdit, concluded }) => {
